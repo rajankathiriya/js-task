@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task</title>
+
+    <!-- <style>
+        body {
+            text-align: center;
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- -------------------------------------Confirmation box---------------------------------------- -->
+    <h1>Javascript Confirmation box</h1>
+    <button onclick="Confirm()">Click</button>
+    <p id="con"></p>
+
+    <script>
+        function Confirm() {
+            let text = "";
+            if (confirm("Press Any Button!!")) {
+                text = "You Pressed OK"
+            } else {
+                text = "You Pressed Cancel"
+            }
+            document.getElementById("con").innerHTML = text
+        }
+    </script>
+
+    <hr>
+
+    <!-- -------------------------------------Prompt box----------------------------------------- -->
+    <h1>Javascript Prompt box</h1>
+    <button onclick="promp()">Click</button>
+    <p id="prompt"></p>
+
+    <script>
+        function promp() {
+            let wel = prompt("What's your favorite drink?", "Coca-Cola")
+            let txt;
+            if (wel == null || wel == "") {
+                txt = "I have never heard of that one.."
+            } else {
+                txt = "Excellent choice. " + wel + " is good for your soul."
+            }
+            document.getElementById('prompt').innerHTML = txt;
+        }
+    </script>
+
+    <hr>
+    <!-- --------------------------------Mouseover and Mouse out---------------------------------------- -->
+    <h1>Mouseover and Mouse out</h1>
+    <img src="/get.gif" width="300px" alt="" onmouseover="mover(this)" onmouseout="mout(this)" id="demo">
+
+    <script>
+        function mover(a) {
+            a.style.width = "500px"
+        }
+
+        function mout(a) {
+            a.style.width = "400px"
+            a.style.opacity = "0.5"
+        }
+    </script>
+
+    <hr>
+
+    <!-- ------------------------------------Array reverse()-------------------------------- -->
+    <h1>JavaScript Array reverse()</h1>
+    <p id="normal"></p>
+    <p id="reverse"></p>
+
+    <script>
+        const name = ["Rajan", "Ravi", "Milan", "Jay", "Darshit", "Akhil"];
+        document.getElementById("normal").innerHTML = "Normal Array:- " + name;
+        document.getElementById("reverse").innerHTML = "Reverse Array:- " + name.reverse();
+    </script>
+
+    <hr>
+
+    <!-- --------------------------------Array Concat------------------------------- -->
+    <h1>Array Concat</h1>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+    <p id="concat"></p>
+    <script>
+        const fruit1 = ["Apple", "Banana", "Mango", "Orange", "Custard apple"];
+        const fruit2 = ["Figs", "Grapes", "Guava", "Kiwi", "Pineapple"];
+        const fruits = fruit1.concat(fruit2);
+
+        document.getElementById("arr1").innerHTML = "Array 1:- " + fruit1;
+        document.getElementById("arr2").innerHTML = "Array 2:- " + fruit2;
+        document.getElementById("concat").innerHTML = "Concat Array:- " + fruits;
+    </script>
+
+    <hr>
+
+    <!-- -------------------------------- One element Add & Remove in Array------------------------------ -->
+    <h1>One element Add & Remove in Array</h1>
+    <p id="nor"></p>
+    <button onclick="add()">Add</button>
+    <button onclick="remo()">Remove</button>
+
+    <script>
+        const car = ["BMW", "Audi", "Volvo", "Jaguar", "Farari"];
+        document.getElementById('nor').innerHTML = "Car Name:- " + car;
+
+        function add() {
+            car.push('Ford');
+            document.getElementById('nor').innerHTML = "Car Name:- " + car;
+        }
+
+        function remo() {
+            car.pop();
+            document.getElementById('nor').innerHTML = "Car Name:- " + car;
+        }
+    </script>
+
+    <hr>
+
+    <!-- -----------------------------Import export---------------------------------------- -->
+    <h1>Import-Export</h1>
+    <p id="imp"></p>
+    <p id="imp2"></p>
+
+    <script type="module">
+        import person from "./person.js"; document.getElementById("imp").innerHTML = person(); import{cname,Model}from "./person.js"; let text="This is a "+cname+" car. "+"Car model is "+Model+"."; document.getElementById("imp2").innerHTML=text;
+    </script>
+
+    <hr>
+
+    <!-- -------------------------------------Fecth Data------------------------------------------ -->
+    <h1>Fetch Data</h1>
+    <p id="fetch"></p>
+
+    <script>
+        const xml = new XMLHttpRequest();
+        xml.onload = function() {
+            document.getElementById("fetch").innerHTML = this.responseText;
+        }
+        xml.open("GET", "/fetch.txt");
+        xml.send();
+    </script>
+
+    <hr>
+
+    <!-- -------------------------------------JSON-convert object------------------------------ -->
+    <h1>JSON-convert object</h1>
+    <p id="json"></p>
+    <script>
+        const fruit = '{"fruit": "Apple","size": "Large","color": "Red"}';
+        const fcon = JSON.parse(fruit);
+        let txt = "";
+        for (const X in fcon) {
+            txt += fcon[X] + ","
+        }
+        document.getElementById("json").innerHTML = txt
+    </script>
+</body>
+
+</html>

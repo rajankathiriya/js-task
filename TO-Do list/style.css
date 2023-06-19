@@ -1,0 +1,42 @@
+.container {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 15px;
+    padding: 25px;
+    width: 40%;
+    margin-top: 20px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container input {
+    width: 87%;
+    height: 20px;
+}
+
+.container .btn {
+    width: 50px;
+    height: 25px;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.container li {
+    color: red;
+}
+
+.container li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 7px;
+}
+
+.container #error {
+    color: red;
+    font-size: 16px;
+}

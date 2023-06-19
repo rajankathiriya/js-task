@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 style="text-align: center;">To-Do List</h2>
+        <ul id="box"></ul>
+        <input type="text" id="name" class="input">
+        <input type="button" value="Add" class="btn" onclick="addMore()" id="btnClick">
+        <small id="error"></small>
+    </div>
+
+    <script>
+        function addMore() {
+            document.getElementById("error").innerHTML = "";
+
+            let name = document.getElementById("name").value;
+            if (name == "") {
+                document.getElementById("error").innerHTML = "Please enter value.......😂"
+            } else {
+                let box = document.getElementById("box");
+                let li = document.createElement("li");
+                li.textContent = name;
+
+                let a = document.createElement("a");
+                a.textContent = "x";
+                a.href = "javascript:void(0)";
+                li.appendChild(a)
+
+                box.appendChild(li)
+
+            }
+            document.getElementById('name').value = "";
+
+        }
+        let btn = document.querySelector('ul');
+        btn.addEventListener('click', function(e) {
+            let box = document.getElementById('box');
+            let li = e.target.parentNode;
+            box.removeChild(li)
+        });
+    </script>
+
+
+
+</body>
+
+</html>
